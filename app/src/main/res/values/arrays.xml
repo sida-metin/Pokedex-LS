@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="ball_array">
+        <item>Pokeball</item>
+        <item>Superball</item>
+        <item>Ultraball</item>
+        <item>Masterball</item>
+    </string-array>
+</resources>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/orange">
+
+    <ImageButton
+        android:id="@+id/back_button1"
+        android:layout_width="43dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/back_button"
+        android:backgroundTint="@color/white"
+        android:gravity="top|center_horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.035"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="385dp"
+        android:layout_height="45dp"
+        android:text="Welcome to LaSalle PokeService"
+        android:textColor="@color/lightblue"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="46dp"
+        tools:layout_editor_absoluteY="66dp"></TextView>
+
+    <ImageView
+        android:id="@+id/my_image_view"
+        android:layout_width="410dp"
+        android:layout_height="315dp"
+        android:src="@drawable/pokemon"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="66dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

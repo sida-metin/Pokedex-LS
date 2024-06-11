@@ -58,6 +58,8 @@ public class PokemonDetailActivity extends Activity {
         Intent intent = getIntent();
         Pokemon pokemon = (Pokemon) intent.getSerializableExtra("pokemon");
 
+        user = new User();
+
 
         Button captureButton = findViewById(R.id.capture_button);
         captureButton.setOnClickListener(new View.OnClickListener() {
@@ -85,6 +87,12 @@ public class PokemonDetailActivity extends Activity {
                 boolean isCaptured = user.capturePokemon(pokemon);
                 resetButtonColors();
                 pokeballButton.setBackgroundColor(Color.MAGENTA);
+
+                SharedPreferences sharedPreferences = getSharedPreferences("SelectedItems", MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString("selectedBall", "Pokeball");
+                editor.apply();
+                Toast.makeText(PokemonDetailActivity.this, "Item selected!", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -95,7 +103,12 @@ public class PokemonDetailActivity extends Activity {
                 pokemon.setPokeballType("Superball");
                 user.capturePokemon(pokemon);
                 resetButtonColors();
-                superballButton.setBackgroundColor(Color.MAGENTA); // Change color to indicate selection
+                superballButton.setBackgroundColor(Color.MAGENTA);
+                SharedPreferences sharedPreferences = getSharedPreferences("SelectedItems", MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString("selectedItem", "Superball");
+                editor.apply();
+                Toast.makeText(PokemonDetailActivity.this, "Item selected!", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -106,7 +119,12 @@ public class PokemonDetailActivity extends Activity {
                 pokemon.setPokeballType("Ultraball");
                 user.capturePokemon(pokemon);
                 resetButtonColors();
-                ultraballButton.setBackgroundColor(Color.MAGENTA); // Change color to indicate selection
+                ultraballButton.setBackgroundColor(Color.MAGENTA);
+                SharedPreferences sharedPreferences = getSharedPreferences("SelectedItems", MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString("selectedItem", "Ultraball");
+                editor.apply();
+                Toast.makeText(PokemonDetailActivity.this, "Item selected!", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -117,7 +135,12 @@ public class PokemonDetailActivity extends Activity {
                 pokemon.setPokeballType("Masterball");
                 user.capturePokemon(pokemon);
                 resetButtonColors();
-                masterballButton.setBackgroundColor(Color.MAGENTA); // Change color to indicate selection
+                masterballButton.setBackgroundColor(Color.MAGENTA);
+                SharedPreferences sharedPreferences = getSharedPreferences("SelectedItems", MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString("selectedItem", "Masterball");
+                editor.apply();
+                Toast.makeText(PokemonDetailActivity.this, "Item selected!", Toast.LENGTH_SHORT).show();
             }
         });
 

@@ -24,6 +24,7 @@ public class PokemonAdapter extends RecyclerView.Adapter<PokemonAdapter.PokemonV
 
     private Context context;
 
+
     public PokemonAdapter(List<Pokemon> pokemonList, Context context) {
         this.pokemonList = pokemonList;
         this.context = context;
@@ -42,6 +43,7 @@ public class PokemonAdapter extends RecyclerView.Adapter<PokemonAdapter.PokemonV
         return new PokemonViewHolder(view);
     }
 
+
     @Override
     public void onBindViewHolder(@NonNull PokemonViewHolder holder, int position) {
         final Pokemon pokemon = pokemonList.get(position);
@@ -54,6 +56,7 @@ public class PokemonAdapter extends RecyclerView.Adapter<PokemonAdapter.PokemonV
                 context.startActivity(intent);
             }
         });
+
     }
 
     @Override

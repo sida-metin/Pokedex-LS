@@ -5,10 +5,10 @@
     android:background="@color/purple">
 
     <TextView
-        android:id="@+id/team_title"
+        android:id="@+id/text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Your Team"
+        android:text="Your Items"
         android:textStyle="bold"
         android:textColor="@color/orange"
         android:background="#50800080"
@@ -16,11 +16,11 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"/>
 
+
     <ListView
-        android:id="@+id/captured_pokemons_list"
+        android:id="@+id/selected_ball_text_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/team_title" />
-
+        android:layout_below="@id/text_view" />
 
 </RelativeLayout>

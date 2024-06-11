@@ -19,6 +19,7 @@ public class CapturedPokemonsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_captured_pokemons);
 
+
         capturedPokemonsListView = findViewById(R.id.captured_pokemons_list);
 
         // Get the captured Pokemon details from shared preferences

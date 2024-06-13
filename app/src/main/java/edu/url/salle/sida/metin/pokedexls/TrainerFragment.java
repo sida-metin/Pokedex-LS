@@ -29,6 +29,13 @@ public class TrainerFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_trainer, container, false);
 
+
+        User user = User.getInstance(getActivity());
+        int money = user.getMoney();
+        moneyTextView = view.findViewById(R.id.money);
+        moneyTextView.setText("Money: " + money);
+
+
         trainerNameEditText = view.findViewById(R.id.trainer_name);
         moneyTextView = view.findViewById(R.id.money);
         itemsButton = view.findViewById(R.id.items);

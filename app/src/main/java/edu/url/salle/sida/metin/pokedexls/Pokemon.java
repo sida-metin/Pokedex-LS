@@ -110,19 +110,18 @@ public class Pokemon implements Serializable {
 
         switch (this.type) {
             case "grass":
-                typePokemon = rand.nextInt(80 - 20 + 1) + 20; // Choose a random value between 20 and 80
+                typePokemon = rand.nextInt(80 - 20 + 1) + 20;
                 break;
             case "fire":
-                typePokemon = rand.nextInt(200 - 80 + 1) + 80; // Choose a random value between 80 and 200
+                typePokemon = rand.nextInt(200 - 80 + 1) + 80;
                 break;
             case "water":
-                typePokemon = rand.nextInt(350 - 200 + 1) + 200; // Choose a random value between 200 and 350
+                typePokemon = rand.nextInt(350 - 200 + 1) + 200;
                 break;
             case "electric":
-                typePokemon = rand.nextInt(500 - 350 + 1) + 350; // Choose a random value between 350 and 500
+                typePokemon = rand.nextInt(500 - 350 + 1) + 350;
                 break;
             default:
-                // If the type is not one of the expected values, return a default money amount
                 return 400;
         }
 

@@ -60,7 +60,7 @@ public class PokemonDetailActivity extends Activity {
         Intent intent = getIntent();
         Pokemon pokemon = (Pokemon) intent.getSerializableExtra("pokemon");
 
-        user = new User();
+        User user = User.getInstance(this);
 
 
         Button captureButton = findViewById(R.id.capture_button);

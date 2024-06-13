@@ -1,15 +1,45 @@
 package edu.url.salle.sida.metin.pokedexls;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class User {
-
+    private static User instance = null;
     private List<Pokemon> pokemons;
     private int money;
+    private Context context;
+
 
     public void updateMoney(int moneyEarned) {
         this.money += moneyEarned;
+    }
+
+    public interface OnMoneyChangeListener {
+    void onMoneyChange(int newMoney);
+    }
+
+    private OnMoneyChangeListener onMoneyChangeListener;
+
+    public void setOnMoneyChangeListener(OnMoneyChangeListener onMoneyChangeListener) {
+        this.onMoneyChangeListener = onMoneyChangeListener;
+    }
+
+    public User(Context context) {
+        this.context = context;
+
+        SharedPreferences sharedPref = context.getSharedPreferences("user_prefs", Context.MODE_PRIVATE);
+        this.money = sharedPref.getInt("money", 0);
+    }
+
+    public static User getInstance(Context context) {
+        if (instance == null) {
+            instance = new User(context);
+        }
+        return instance;
     }
 
     public List<Pokemon> getPokemons() {
@@ -22,6 +52,14 @@ public class User {
 
     public void setMoney(int money) {
         this.money = money;
+
+        SharedPreferences sharedPref = context.getSharedPreferences("user_prefs", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putInt("money", money);
+        editor.apply();
+        if (onMoneyChangeListener != null) {
+            onMoneyChangeListener.onMoneyChange(money);
+        }
     }
 
     private List<Pokemon> capturedPokemons = new ArrayList<>();

@@ -19,6 +19,8 @@ public class Pokemon implements Serializable {
     private List<String> types;
     private List<String> stats;
 
+    private String shinyImageUrl;
+
     private boolean captured = false;
     private String pokeballType;
 
@@ -30,6 +32,15 @@ public class Pokemon implements Serializable {
 
     public void setCaptured(boolean captured) {
         this.captured = captured;
+    }
+
+
+    public String getShinyImageUrl() {
+        return shinyImageUrl;
+    }
+
+    public void setShinyImageUrl(String shinyImageUrl) {
+        this.shinyImageUrl = shinyImageUrl;
     }
 
 

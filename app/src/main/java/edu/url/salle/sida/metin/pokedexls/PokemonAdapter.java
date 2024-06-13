@@ -17,6 +17,7 @@ import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class PokemonAdapter extends RecyclerView.Adapter<PokemonAdapter.PokemonViewHolder> implements Filterable {
     private List<Pokemon> pokemonList;
@@ -32,6 +33,13 @@ public class PokemonAdapter extends RecyclerView.Adapter<PokemonAdapter.PokemonV
     }
 
     public void addPokemon(Pokemon pokemon) {
+        Random random = new Random();
+        int shinyChance = random.nextInt(500);
+
+        if (shinyChance == 0) {
+            pokemon.setShinyImageUrl("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/" + pokemon.getId() + ".png");
+        }
+
         this.pokemonList.add(pokemon);
         this.pokemonListFull.add(pokemon);
         notifyDataSetChanged();
@@ -118,9 +126,16 @@ public class PokemonAdapter extends RecyclerView.Adapter<PokemonAdapter.PokemonV
     public void bind(Pokemon pokemon) {
         pokemonNameView.setText(pokemon.getName());
         pokemonTypeView.setText(pokemon.getType());
-        Glide.with(itemView)
-                .load(pokemon.getUrl())
-                .into(pokemonImageView);
+
+        if (pokemon.getShinyImageUrl() != null) {
+            Glide.with(itemView)
+                    .load(pokemon.getShinyImageUrl())
+                    .into(pokemonImageView);
+        } else {
+            Glide.with(itemView)
+                    .load(pokemon.getUrl())
+                    .into(pokemonImageView);
+        }
     }
 
        @Override

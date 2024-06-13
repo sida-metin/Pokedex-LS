@@ -33,6 +33,7 @@ import org.w3c.dom.Text;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 public class PokemonDetailActivity extends Activity {
 
@@ -66,23 +67,36 @@ public class PokemonDetailActivity extends Activity {
         captureButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String pokemonName = pokemon.getName(); // Burada değişiklik yaptık
+                String pokemonName = pokemon.getName();
                 SharedPreferences sharedPreferences = getSharedPreferences("CapturedPokemons", MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPreferences.edit();
 
                 if (sharedPreferences.getBoolean(pokemonName, false)) {
-                    // Pokemon already captured, so release it
                     editor.remove(pokemonName);
                     editor.apply();
                     Toast.makeText(PokemonDetailActivity.this, "Pokemon released!", Toast.LENGTH_SHORT).show();
                 } else {
-                    // Pokemon not captured, so capture it
+                    Map<String, ?> allEntries = sharedPreferences.getAll();
+                    if (allEntries.size() >= 6) {
+                        Toast.makeText(PokemonDetailActivity.this, "You have already captured 6 Pokemons. Release one before capturing another.", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+
                     editor.putBoolean(pokemonName, true);
                     editor.apply();
                     Toast.makeText(PokemonDetailActivity.this, "Pokemon captured!", Toast.LENGTH_SHORT).show();
+
+                    int moneyEarned = pokemon.calculateMoney();
+
+                    user.setMoney(user.getMoney() + moneyEarned);
+
+                    TextView moneyTextView = findViewById(R.id.money_text_view);
+                    moneyTextView.setText("Money: " + user.getMoney());
                 }
             }
         });
+
+
 
 
         pokeballButton = findViewById(R.id.pokeball_button);
@@ -378,4 +392,5 @@ public class PokemonDetailActivity extends Activity {
             Log.e("PokemonDetailActivity", "Error in onCreate", e);
         }
     }
+
 }

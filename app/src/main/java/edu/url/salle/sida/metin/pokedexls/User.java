@@ -8,6 +8,10 @@ public class User {
     private List<Pokemon> pokemons;
     private int money;
 
+    public void updateMoney(int moneyEarned) {
+        this.money += moneyEarned;
+    }
+
     public List<Pokemon> getPokemons() {
         return this.pokemons;
     }

@@ -52,14 +52,7 @@ public class PokedexFragment extends Fragment {
                 return false;
             }
         });
-
-        searchView.setOnCloseListener(new SearchView.OnCloseListener() {
-            @Override
-            public boolean onClose() {
-                searchView.setQuery("", false);
-                return true;
-            }
-        });
+        
 
         searchView.setOnQueryTextFocusChangeListener(new View.OnFocusChangeListener() {
             @Override

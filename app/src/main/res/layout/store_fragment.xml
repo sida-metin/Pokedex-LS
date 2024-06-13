@@ -1,129 +1,201 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:padding="16dp"
-    android:background="@drawable/pika">
-
+    android:background="#000000">
 
     <TextView
+        android:id="@+id/store_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Store"
         android:textSize="24sp"
         android:textStyle="bold"
-        android:layout_gravity="center"
-        android:paddingBottom="16dp" />
+        android:textColor="@color/orange"
+        android:layout_centerHorizontal="true"
+    android:paddingBottom="16dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingBottom="16dp">
+        android:orientation="vertical"
+        android:layout_below="@id/store_title"
+        android:layout_marginTop="32dp">
 
-
-        <TextView
-            android:layout_width="0dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Pokeball"
-            android:textSize="18sp" />
+            android:orientation="horizontal"
+            android:paddingBottom="16dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="200"
-            android:textSize="18sp"
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/pokeballflatt"
+                android:layout_marginEnd="8dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pokeball"
+                    android:textSize="18sp"
+                    android:textColor="#FFFFFF"
+                />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="200"
+                android:textSize="18sp"
+                android:textColor="#FFFFFF"
             android:paddingEnd="16dp" />
 
-        <Button
-            android:id="@+id/buy_pokeball_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Buy" />
-    </LinearLayout>
+            <Button
+                android:id="@+id/buy_pokeball_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/orange"
+                android:textColor="@color/black"
+                android:text="Buy" />
+        </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingBottom="16dp">
-
-        <TextView
-            android:layout_width="0dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Superball"
-            android:textSize="18sp" />
+            android:orientation="horizontal"
+            android:paddingBottom="16dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="500"
-            android:textSize="18sp"
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/superballflat"
+                android:layout_marginEnd="8dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Superball"
+                    android:textSize="18sp"
+                    android:textColor="#FFFFFF"
+                />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="500"
+                android:textSize="18sp"
+                android:textColor="#FFFFFF"
             android:paddingEnd="16dp" />
 
-        <Button
-            android:id="@+id/buy_superball_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Buy" />
-    </LinearLayout>
+            <Button
+                android:id="@+id/buy_superball_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/orange"
+                android:textColor="@color/black"
+                android:text="Buy" />
+        </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingBottom="16dp">
-
-        <TextView
-            android:layout_width="0dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Ultraball"
-            android:textSize="18sp" />
+            android:orientation="horizontal"
+            android:paddingBottom="16dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="1500"
-            android:textSize="18sp"
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ultraballflat"
+                android:layout_marginEnd="8dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ultraball"
+                    android:textSize="18sp"
+                    android:textColor="#FFFFFF"
+                />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1500"
+                android:textSize="18sp"
+                android:textColor="#FFFFFF"
             android:paddingEnd="16dp" />
 
-        <Button
-            android:id="@+id/buy_ultraball_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Buy" />
-    </LinearLayout>
+            <Button
+                android:id="@+id/buy_ultraball_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/orange"
+                android:textColor="@color/black"
+                android:text="Buy" />
+        </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingBottom="16dp">
-
-        <TextView
-            android:layout_width="0dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Masterball"
-            android:textSize="18sp" />
+            android:orientation="horizontal"
+            android:paddingBottom="16dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="100,000"
-            android:textSize="18sp"
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/masterballflat"
+                android:layout_marginEnd="8dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Masterball"
+                    android:textSize="18sp"
+                    android:textColor="#FFFFFF"
+                />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="100,000"
+                android:textSize="18sp"
+                android:textColor="#FFFFFF"
             android:paddingEnd="16dp" />
 
-        <Button
-            android:id="@+id/buy_masterball_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Buy" />
+            <Button
+                android:id="@+id/buy_masterball_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/orange"
+                android:textColor="@color/black"
+                android:text="Buy" />
+        </LinearLayout>
+
     </LinearLayout>
 
-</LinearLayout>
+</RelativeLayout>

@@ -20,4 +20,9 @@ public class MainActivity extends AppCompatActivity {
             fragmentTransaction.commit();
         }
     }
+    public void onTabBarClicked() {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container, new PokedexFragment())
+                .commit();
+    }
 }

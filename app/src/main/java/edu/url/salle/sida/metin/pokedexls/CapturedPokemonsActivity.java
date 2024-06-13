@@ -44,8 +44,8 @@ public class CapturedPokemonsActivity extends AppCompatActivity {
         Map<String, ?> capturedPokemons = sharedPreferences.getAll();
 
         ArrayList<String> capturedPokemonsList = new ArrayList<>();
-        for (Object value : capturedPokemons.values()) {
-            capturedPokemonsList.add(String.valueOf(value));
+        for (Map.Entry<String, ?> entry : capturedPokemons.entrySet()) {
+            capturedPokemonsList.add(entry.getKey());
         }
 
         return capturedPokemonsList;

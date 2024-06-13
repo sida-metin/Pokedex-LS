@@ -32,6 +32,7 @@ import org.json.JSONObject;
 import org.w3c.dom.Text;
 
 import java.util.List;
+import java.util.Map;
 
 public class PokemonDetailActivity extends Activity {
 
@@ -67,14 +68,28 @@ public class PokemonDetailActivity extends Activity {
             public void onClick(View v) {
                 // Get the Pokemon details
                 String pokemonName = pokemon.getName();
-                String pokemonId = String.valueOf(pokemon.getId()); // Get the ID of the captured Pokemon
-
                 SharedPreferences sharedPreferences = getSharedPreferences("CapturedPokemons", MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putString(pokemonId, pokemonName);
-                editor.remove("Pikachu");
-                editor.apply();
-                Toast.makeText(PokemonDetailActivity.this, "Pokemon captured!", Toast.LENGTH_SHORT).show();
+
+                // Check if the Pokemon is already captured
+                if (sharedPreferences.contains(pokemonName)) {
+                    // If the Pokemon is already captured, remove it from SharedPreferences
+                    editor.remove(pokemonName);
+                    editor.apply();
+                    Toast.makeText(PokemonDetailActivity.this, "Pokemon released!", Toast.LENGTH_SHORT).show();
+                } else {
+                    // Check if the user has already captured 6 Pokemons
+                    Map<String, ?> capturedPokemons = sharedPreferences.getAll();
+                    if (capturedPokemons.size() >= 6) {
+                        // If the user has already captured 6 Pokemons, show a message and prevent capturing a new Pokemon
+                        Toast.makeText(PokemonDetailActivity.this, "You have already captured 6 Pokemons!", Toast.LENGTH_SHORT).show();
+                    } else {
+                        // If the user has captured less than 6 Pokemons, allow capturing a new Pokemon
+                        editor.putString(pokemonName, pokemonName);
+                        editor.apply();
+                        Toast.makeText(PokemonDetailActivity.this, "Pokemon captured!", Toast.LENGTH_SHORT).show();
+                    }
+                }
             }
         });
 

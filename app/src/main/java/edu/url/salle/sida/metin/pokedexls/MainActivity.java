@@ -2,8 +2,11 @@ package edu.url.salle.sida.metin.pokedexls;
 
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import android.view.View;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,9 +23,17 @@ public class MainActivity extends AppCompatActivity {
             fragmentTransaction.commit();
         }
     }
-    public void onTabBarClicked() {
+
+    private void loadFragment(Fragment fragment) {
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.fragment_container, fragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
+    }
+
+    public void onTabBarClicked(Fragment fragment) {
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fragment_container, new PokedexFragment())
+                .replace(R.id.fragment_container, fragment)
                 .commit();
     }
 }

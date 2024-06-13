@@ -138,7 +138,6 @@ public class PokemonAdapter extends RecyclerView.Adapter<PokemonAdapter.PokemonV
                         .into(pokemonImageView);
             }
 
-            // Check if the Pokemon is captured
             if (sharedPreferences.contains(String.valueOf(pokemon.getId()))) {
                 pokemonCaughtView.setVisibility(View.VISIBLE);
             } else {

@@ -25,6 +25,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
+
 import androidx.appcompat.widget.SearchView;
 
 public class PokedexFragment extends Fragment {
@@ -32,10 +34,8 @@ public class PokedexFragment extends Fragment {
     private PokemonAdapter pokemonAdapter;
     private SearchView searchView;
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
         View view = inflater.inflate(R.layout.fragment_pokedex, container, false);
 
         searchView = view.findViewById(R.id.search_view);
@@ -52,7 +52,6 @@ public class PokedexFragment extends Fragment {
                 return false;
             }
         });
-        
 
         searchView.setOnQueryTextFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
@@ -109,7 +108,6 @@ public class PokedexFragment extends Fragment {
                                     pokemon.setUrl(response.getJSONObject("sprites").getString("front_default"));
 
                                     pokemon.setShinyImageUrl("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/" + pokemon.getId() + ".png");
-
 
                                     JSONArray abilities = response.getJSONArray("abilities");
                                     List<String> abilityUrls = new ArrayList<>();

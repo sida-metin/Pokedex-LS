@@ -134,5 +134,35 @@ public class PokemonAdapter extends RecyclerView.Adapter<PokemonAdapter.PokemonV
                view.getContext().startActivity(intent);
            }
        }
+
+       public Filter getFilter() {
+           return new Filter() {
+               @Override
+               protected FilterResults performFiltering(CharSequence constraint) {
+                   List<Pokemon> filteredList = new ArrayList<>();
+                   if (constraint == null || constraint.length() == 0) {
+                       filteredList.addAll(pokemonListFull);
+                   } else {
+                       String filterPattern = constraint.toString().toLowerCase().trim();
+                       for (Pokemon item : pokemonListFull) {
+                           if (item.getName().toLowerCase().contains(filterPattern)) {
+                               filteredList.add(item);
+                           }
+                       }
+                   }
+
+                   FilterResults results = new FilterResults();
+                   results.values = filteredList;
+                   return results;
+               }
+
+               @Override
+               protected void publishResults(CharSequence constraint, FilterResults results) {
+                   pokemonList.clear();
+                   pokemonList.addAll((List) results.values);
+                   notifyDataSetChanged();
+               }
+           };
+       }
 }
 }

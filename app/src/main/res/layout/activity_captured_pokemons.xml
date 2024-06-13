@@ -35,4 +35,5 @@
         android:layout_below="@id/team_title" />
 
 
+
 </RelativeLayout>

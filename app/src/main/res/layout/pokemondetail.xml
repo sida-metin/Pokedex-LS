@@ -162,19 +162,7 @@
                 android:background="@drawable/rounded_red_button"
                 android:textColor="@color/black"
                 app:layout_constraintTop_toBottomOf="@+id/superball_button"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/release_button" />
-
-            <Button
-                android:id="@+id/release_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Release"
-                android:background="@drawable/rounded_red_button"
-                android:textColor="@color/black"
-                app:layout_constraintTop_toBottomOf="@+id/superball_button"
-                app:layout_constraintStart_toEndOf="@+id/capture_button"
-                app:layout_constraintEnd_toEndOf="parent" />
+                app:layout_constraintStart_toStartOf="parent" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,5 +1,3 @@
-// StoreFragment.java
-
 package edu.url.salle.sida.metin.pokedexls;
 
 import android.os.Bundle;

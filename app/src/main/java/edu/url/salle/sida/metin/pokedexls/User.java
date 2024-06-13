@@ -5,6 +5,21 @@ import java.util.List;
 
 public class User {
 
+    private List<Pokemon> pokemons;
+    private int money;
+
+    public List<Pokemon> getPokemons() {
+        return this.pokemons;
+    }
+
+    public int getMoney() {
+        return this.money;
+    }
+
+    public void setMoney(int money) {
+        this.money = money;
+    }
+
     private List<Pokemon> capturedPokemons = new ArrayList<>();
 
     public List<Pokemon> getCapturedPokemons() {

@@ -3,6 +3,8 @@ package edu.url.salle.sida.metin.pokedexls;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
+
 
 public class Pokemon implements Serializable {
 
@@ -84,8 +86,48 @@ public class Pokemon implements Serializable {
         }
     }
 
+    public boolean capture(User user) {
+        if (user.getPokemons().size() >= 6) {
+            return false;
+        }
 
+        double captureProbability = this.captureProbability();
+        double randomValue = Math.random();
 
+        if (randomValue <= captureProbability) {
+            user.getPokemons().add(this);
+            int money = this.calculateMoney();
+            user.setMoney(user.getMoney() + money);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public int calculateMoney() {
+        Random rand = new Random();
+        int typePokemon;
+
+        switch (this.type) {
+            case "First evolution":
+                typePokemon = rand.nextInt(80 - 20 + 1) + 20;
+                break;
+            case "Second evolution":
+                typePokemon = rand.nextInt(200 - 80 + 1) + 80;
+                break;
+            case "Third evolution":
+                typePokemon = rand.nextInt(350 - 200 + 1) + 200;
+                break;
+            case "Legendary":
+                typePokemon = rand.nextInt(500 - 350 + 1) + 350;
+                break;
+            default:
+                throw new IllegalArgumentException("Invalid pokemon type: " + this.type);
+        }
+
+        int money = 400 + 100 * typePokemon;
+        return money;
+    }
 
 
 

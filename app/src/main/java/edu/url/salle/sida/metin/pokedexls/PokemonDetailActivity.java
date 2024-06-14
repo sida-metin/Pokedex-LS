@@ -171,7 +171,8 @@ public class PokemonDetailActivity extends Activity {
 
         try {
 
-            ImageView imageView = findViewById(R.id.pokemon_image);
+            ImageView frontImageView = findViewById(R.id.pokemon_front_image);
+            ImageView backImageView = findViewById(R.id.pokemon_back_image);
             TextView nameTextView = findViewById(R.id.pokemon_name);
             nameTextView.setText(pokemon.getName());
             LinearLayout abilityLayout = findViewById(R.id.pokemon_ability);
@@ -186,7 +187,8 @@ public class PokemonDetailActivity extends Activity {
                 }
             });
 
-            Glide.with(this).load(pokemon.getUrl()).into(imageView);
+            Glide.with(this).load(pokemon.getUrl()).into(frontImageView);
+            Glide.with(this).load(pokemon.getBackImageUrl()).into(backImageView);
 
             String pokemonNameUrl = "https://pokeapi.co/api/v2/pokemon/" + pokemon.getId();
             RequestQueue queue = Volley.newRequestQueue(this);

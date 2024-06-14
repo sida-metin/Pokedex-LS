@@ -108,6 +108,7 @@ public class PokedexFragment extends Fragment {
                                     pokemon.setName(response.getString("name"));
                                     pokemon.setId(response.getInt("id"));
                                     pokemon.setUrl(response.getJSONObject("sprites").getString("front_default"));
+                                    pokemon.setBackImageUrl(response.getJSONObject("sprites").getString("back_default"));
 
                                     pokemon.setShinyImageUrl("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/" + pokemon.getId() + ".png");
 

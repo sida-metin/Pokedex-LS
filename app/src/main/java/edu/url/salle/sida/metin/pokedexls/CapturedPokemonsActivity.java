@@ -24,10 +24,8 @@ public class CapturedPokemonsActivity extends AppCompatActivity {
 
         capturedPokemonsList = findViewById(R.id.captured_pokemons_list);
 
-        // Initialize the adapter
         adapter = new PokeTeamAdapter(this, R.layout.list_item_pokemon, getPokemons());
 
-        // Set the adapter to the ListView
         capturedPokemonsList.setAdapter(adapter);
 
         ImageButton backButton = findViewById(R.id.back_button);

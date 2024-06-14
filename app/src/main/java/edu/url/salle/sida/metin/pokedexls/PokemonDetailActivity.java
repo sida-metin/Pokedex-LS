@@ -165,10 +165,6 @@ public class PokemonDetailActivity extends Activity {
         });
 
 
-
-
-
-
         try {
 
             ImageView frontImageView = findViewById(R.id.pokemon_front_image);

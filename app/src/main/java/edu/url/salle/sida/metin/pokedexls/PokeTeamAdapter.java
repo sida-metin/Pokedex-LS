@@ -31,18 +31,14 @@ public class PokeTeamAdapter extends ArrayAdapter<String> {
         TextView pokemonName = convertView.findViewById(R.id.pokemon_name);
         pokemonName.setText(getItem(position));
 
-        // In your PokeTeamAdapter
         Button releaseButton = convertView.findViewById(R.id.release_button);
         releaseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Get the Pokemon name
                 String pokemonName = getItem(position);
 
-                // Remove the Pokemon from SharedPreferences
                 deselectPokemon(pokemonName);
 
-                // Remove the Pokemon from the list and update the ListView
                 remove(pokemonName);
                 notifyDataSetChanged();
             }

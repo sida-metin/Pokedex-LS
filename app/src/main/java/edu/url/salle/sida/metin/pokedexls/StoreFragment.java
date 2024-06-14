@@ -31,6 +31,13 @@ public class StoreFragment extends Fragment {
     }
 
     private void purchaseItem(String itemName, int itemPrice) {
-        Toast.makeText(getActivity(), itemName + " purchased for " + itemPrice, Toast.LENGTH_SHORT).show();
+        User user = User.getInstance(getActivity());
+        if (user.getMoney() >= itemPrice) {
+            user.buyItem(itemName, itemPrice);
+            user.setMoney(user.getMoney() - itemPrice);
+            Toast.makeText(getActivity(), itemName + " purchased for " + itemPrice, Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(getActivity(), "Not enough money to purchase " + itemName, Toast.LENGTH_SHORT).show();
+        }
     }
 }

@@ -6,12 +6,16 @@ import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+import java.util.HashSet;
 
 public class User {
     private static User instance = null;
     private List<Pokemon> pokemons;
     private int money;
     private Context context;
+    private Set<String> inventory;
+
 
 
     public void updateMoney(int moneyEarned) {
@@ -22,6 +26,7 @@ public class User {
     void onMoneyChange(int newMoney);
     }
 
+
     private OnMoneyChangeListener onMoneyChangeListener;
 
     public void setOnMoneyChangeListener(OnMoneyChangeListener onMoneyChangeListener) {
@@ -30,9 +35,21 @@ public class User {
 
     public User(Context context) {
         this.context = context;
-
         SharedPreferences sharedPref = context.getSharedPreferences("user_prefs", Context.MODE_PRIVATE);
+        this.inventory = new HashSet<>(sharedPref.getStringSet("inventory", new HashSet<>()));
         this.money = sharedPref.getInt("money", 0);
+    }
+
+    public Set<String> getInventory() {
+        return this.inventory;
+    }
+
+    public void buyItem(String item, int price) {
+        this.inventory.add(item);
+        SharedPreferences sharedPref = context.getSharedPreferences("user_prefs", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putStringSet("inventory", this.inventory);
+        editor.apply();
     }
 
     public static User getInstance(Context context) {

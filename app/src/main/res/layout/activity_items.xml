@@ -28,11 +28,16 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"/>
 
-
     <ListView
         android:id="@+id/selected_ball_text_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@id/text_view" />
+
+    <ListView
+        android:id="@+id/inventory_list_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/selected_ball_text_view" />
 
 </RelativeLayout>

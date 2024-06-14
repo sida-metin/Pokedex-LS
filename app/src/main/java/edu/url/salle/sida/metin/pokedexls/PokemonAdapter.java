@@ -137,8 +137,9 @@ public class PokemonAdapter extends RecyclerView.Adapter<PokemonAdapter.PokemonV
                         .load(pokemon.getUrl())
                         .into(pokemonImageView);
             }
+            SharedPreferences sharedPreferences = itemView.getContext().getSharedPreferences("CapturedPokemons", Context.MODE_PRIVATE);
 
-            if (sharedPreferences.contains(String.valueOf(pokemon.getId()))) {
+            if (sharedPreferences.getBoolean(pokemon.getName(), false)) {
                 pokemonCaughtView.setVisibility(View.VISIBLE);
             } else {
                 pokemonCaughtView.setVisibility(View.GONE);
